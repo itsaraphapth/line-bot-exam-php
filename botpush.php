@@ -18,7 +18,7 @@ $pushID = array(
         $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
         $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
         
-        $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("เอกสาร PR ใหม่ รออนุมัติ ".$val." ");
+        $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("เอกสาร PR ใหม่ รออนุมัติ ".." ");
         $response = $bot->multicast($pushID, $textMessageBuilder);
         
         echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
