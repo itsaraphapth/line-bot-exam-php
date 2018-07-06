@@ -8,13 +8,16 @@ $access_token = 'dh1wWTCSKQGOZg5QQdtQuXvSMbPP7YsgS5ZDVv5dfNNKCChgttDTvwqz/Pxbdpl
 
 $channelSecret = '3c69a807c14b2357a8ee4aae1b33dc38';
 
-$pushID = 'U11fae07ce7afb4aac7875be082b2b3ee';
+$pushID = array( 
+    'U11fae07ce7afb4aac7875be082b2b3ee'
+
+    );
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('มีเอกสารใหม่ รออนุมัติ');
-$response = $bot->pushMessage($pushID, $textMessageBuilder);
+$response = $bot->multicast($pushID, $textMessageBuilder);
 
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
