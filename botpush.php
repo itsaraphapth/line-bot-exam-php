@@ -29,7 +29,7 @@
   
       // check for send message only
       $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($_POST['text']);
-      $response = $bot->pushMessage($_POST['to'], $textMessageBuilder);
+      $response = $bot->>multicast($_POST['to'], $textMessageBuilder);
   
       // check status sending line api
       if($response->isSucceeded()){
