@@ -12,14 +12,21 @@ $pushID = array(
     'U11fae07ce7afb4aac7875be082b2b3ee'
 
     );
+    foreach($pushID as $val){
 
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("เอกสาร PR ใหม่ รออนุมัติ ".$pushID." ");
-$response = $bot->multicast($pushID, $textMessageBuilder);
+        $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+        $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+        
+        $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("เอกสาร PR ใหม่ รออนุมัติ ".$val[0]." ");
+        $response = $bot->multicast($pushID, $textMessageBuilder);
+        
+        echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+        
 
-echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+    }
+
+
 
 
 
