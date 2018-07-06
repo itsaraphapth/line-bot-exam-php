@@ -16,7 +16,7 @@ $pushID = array(
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('มีเอกสารใหม่ รออนุมัติ');
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('มีเอกสารใหม่ รออนุมัติ '$pushID'');
 $response = $bot->multicast($pushID, $textMessageBuilder);
 
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
