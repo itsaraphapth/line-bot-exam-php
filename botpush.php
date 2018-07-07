@@ -1,11 +1,4 @@
-
-
-
-
-
-
-
-    <?php
+<?php
     require_once __DIR__ . '/vendor/autoload.php';
   
     // debug
@@ -87,5 +80,5 @@
     }
   
     // debug
-    // echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+    echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
   ?>
