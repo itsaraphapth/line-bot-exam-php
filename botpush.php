@@ -19,17 +19,21 @@
     // Channel access token - (from https://developers.line.me/console/)
     $secret = '3c69a807c14b2357a8ee4aae1b33dc38';
     // $secret = $_POST['secret'];
-  
+   $pushID = array(
+       "U11fae07ce7afb4aac7875be082b2b3ee",
+       "U0e6b5794496cbcee1bb4850c8f888c8c",
+       "U8f70ff048d6c81f89cc0f280be0acef2"
+   );
   
     // connect key setup
     $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($token);
     $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $secret]);
   
-    if(isset($_POST['to']) && trim($_POST['to']) != '' && isset($_POST['text']) && trim($_POST['text']) != ''){
+    if(isset($pushID) && trim($pushID) != '' && isset($_POST['text']) && trim($_POST['text']) != ''){
   
       // check for send message only
       $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($_POST['text']);
-      $response = $bot->pushMessage($_POST['to'], $textMessageBuilder);
+      $response = $bot->>multicast($pushID, $textMessageBuilder);
   
       // check status sending line api
       if($response->isSucceeded()){
