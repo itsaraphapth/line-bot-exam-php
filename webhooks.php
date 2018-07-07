@@ -19,12 +19,12 @@ if (!is_null($events['events'])) {
 		$message = trim($event['message']['text']);
 
 		switch ($message) {
-		  case '/help':
+		  case 'help':
 			$text = "ฉันคือ ID Finder Bot ยินดีที่ได้รู้จัก";
 			$text .= "\nฉันมีหน้าที่ช่วยคุณค้าหา UserID RoomID หรือ GroupID ให้กับคุณ";
 			$text .= "\nลองพิมพ์ /id ดูซิ";
 			break;
-		  case '/id':
+		  case 'id':
 			$text = "ข้อมูล ID ของคุณ";
 			if(isset($event['source']['userId'])){ $text .= "\nUser ID : ".$event['source']['userId']; }
 			if(isset($event['source']['roomId'])){ $text .= "\nRoom ID : ".$event['source']['roomId']; }
