@@ -8,11 +8,11 @@ error_reporting(E_ALL);
 require_once '../vendor/autoload.php';
  
 // การตั้งเกี่ยวกับ bot
-require_once 'bot_settings.php';
- 
+// require_once 'bot_settings.php';
+ $access_token = 'dh1wWTCSKQGOZg5QQdtQuXvSMbPP7YsgS5ZDVv5dfNNKCChgttDTvwqz/PxbdplN28Gdg6ARoJQIdk7LU3fWImZntWSZyNbwPqWfZPY4H4EuoDVcCNLST5izrdeHG308idXPWYrN11ZoTzijjKvy9wdB04t89/1O/w1cDnyilFU=';
 // กรณีมีการเชื่อมต่อกับฐานข้อมูล
 //require_once("dbconnect.php");
- 
+ $secret = '3c69a807c14b2357a8ee4aae1b33dc38';
 ///////////// ส่วนของการเรียกใช้งาน class ผ่าน namespace
 use LINE\LINEBot;
 use LINE\LINEBot\HTTPClient;
