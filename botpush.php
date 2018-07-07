@@ -71,7 +71,7 @@
             // message setup & send
             if($text != NULL){
               $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($text);
-              $response = $bot->pushMessage($to, $textMessageBuilder);
+              $response = $bot->replyMessage($to, $textMessageBuilder);
             }
   
           }
