@@ -29,18 +29,18 @@
     $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($token);
     $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $secret]);
   
-    // check for send message only
-    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("ลองส่งหลายคน");
-    $response = $bot->multicast($pushID, $textMessageBuilder);
-
-    // check status sending line api
-    if($response->isSucceeded()){
-      echo "true";
-    }else{
-      echo "false";
-    }
-    if(isset($_POST['to']) && trim($_POST['to']) != '' && isset($_POST['text']) && trim($_POST['text']) != ''){
+    if(isset($pushID) && trim($pushID) ){
   
+      // check for send message only
+      $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("ลองส่งหลายคน");
+      $response = $bot->multicast($pushID, $textMessageBuilder);
+  
+      // check status sending line api
+      if($response->isSucceeded()){
+        echo "true";
+      }else{
+        echo "false";
+      }
   
     }else{
   
