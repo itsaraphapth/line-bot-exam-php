@@ -27,7 +27,7 @@
       // check for send message only
       $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($_POST['text']);
       $response = $bot->pushMessage($_POST['to'], $textMessageBuilder);
-      $replyData = new TemplateMessageBuilder('Confirm Template',
+      $replyData = new \LINE\LINEBot\TemplateMessageBuilder('Confirm Template',
                         new ConfirmTemplateBuilder(
                                 'Confirm template builder',
                                 array(
