@@ -29,7 +29,7 @@
     $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($token);
     $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $secret]);
   
-    if(isset($pushID) && trim($pushID) ){
+    if(isset($pushID) ){
   
       // check for send message only
       $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("ลองส่งหลายคน");
