@@ -29,11 +29,11 @@
     $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($token);
     $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $secret]);
   
-    if(isset($pushID) && trim($pushID) != '' && isset($_POST['text']) && trim($_POST['text']) != ''){
+    if(isset($_POST['to']) && trim($_POST['to']) != '' && isset($_POST['text']) && trim($_POST['text']) != ''){
   
       // check for send message only
       $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($_POST['text']);
-      $response = $bot->>multicast($pushID, $textMessageBuilder);
+      $response = $bot->pushMessage($_POST['to'], $textMessageBuilder);
   
       // check status sending line api
       if($response->isSucceeded()){
