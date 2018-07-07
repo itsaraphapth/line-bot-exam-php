@@ -27,21 +27,7 @@
       // check for send message only
       $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($_POST['text']);
       $response = $bot->pushMessage($_POST['to'], $textMessageBuilder);
-      $replyData = new \LINE\LINEBot\TemplateMessageBuilder('Confirm Template',
-                        new ConfirmTemplateBuilder(
-                                'Confirm template builder',
-                                array(
-                                    new MessageTemplateActionBuilder(
-                                        'Yes',
-                                        'Text Yes'
-                                    ),
-                                    new MessageTemplateActionBuilder(
-                                        'No',
-                                        'Text NO'
-                                    )
-                                )
-                        )
-                    );
+     
       // check status sending line api
       if($response->isSucceeded()){
         echo "true";
