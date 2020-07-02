@@ -64,7 +64,7 @@
                 if(isset($event['source']['groupId'])){ $text .= "\nGroup ID : ".$event['source']['groupId']; }
                 break;
               default:
-                $text = NULL;
+                $text = "sss";
                 break;
             }
   
