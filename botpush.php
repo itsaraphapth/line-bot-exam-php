@@ -36,8 +36,6 @@
       }
   
     }else{
-        echo "ddd";
-        die();
       // Get POST body content
       $content = file_get_contents('php://input');
       // Parse JSON
