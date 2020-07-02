@@ -36,7 +36,8 @@
       }
   
     }else{
-  
+        echo "ddd";
+        die();
       // Get POST body content
       $content = file_get_contents('php://input');
       // Parse JSON
@@ -50,7 +51,7 @@
             $type = $event['source']['type']; // user , room , group
             $to = $event['source'][$type.'Id']; // userId , roomId , groupId
             $message = trim($event['message']['text']);
-  
+            
             switch ($message) {
               case '/help':
                 $text = "ฉันคือ ID Finder Bot ยินดีที่ได้รู้จัก";
